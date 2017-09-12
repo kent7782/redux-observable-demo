@@ -27,6 +27,7 @@ export default function reducer(state={
         return Object.assign({},
           state,
           { fetching: false },
+          { fetched: false },
           { canceled: true });
       }
 

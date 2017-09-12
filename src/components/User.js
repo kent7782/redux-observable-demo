@@ -14,13 +14,14 @@ class User extends Component {
   }
 
   render() {
+    var cancelDisabled = true;
     var message = '';
     if (this.props.user.fetching) {
       message = 'fetching...';
+      cancelDisabled = false;
     } else if (this.props.user.fetched) {
+      cancelDisabled = true;
       message = 'fetched.';
-    } else if (this.props.user.canceled) {
-      message = 'canceled.';
     }
 
     var userItems = this.props.user.users.map(user => {
@@ -31,7 +32,7 @@ class User extends Component {
       <div id="user-container" className="container">
         <h2>AJAX with Observable</h2>
         <button onClick={this.handleFetchUser.bind(this)}>Fetch User</button>
-        <button onClick={this.handleCancel.bind(this)}>Cancel Request</button>
+        <button onClick={this.handleCancel.bind(this)} disabled={cancelDisabled}>Cancel Request</button>
         <p className="message">{message}</p>
         <div id="user-list">{userItems}</div>
       </div>

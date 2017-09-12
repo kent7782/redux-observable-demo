@@ -23,7 +23,7 @@ export function generatePoints(n) {
   return { type: 'GENERATE_POINTS', payload: { points: points, hull: [] } };
 };
 
-// Jarvis’s Algorithm or Wrapping
+// Gift Wrapping Algorithm by Jarvis
 export function calculateConvexHull(points) {
   var n = points.length;
 
